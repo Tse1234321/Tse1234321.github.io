@@ -1,0 +1,64 @@
+/* ============================================================
+   Utilities — layout primitives & scroll-reveal animation
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.section {
+  padding: calc(var(--section-gap) / 2) 0;
+}
+
+.section + .section {
+  margin-top: calc(var(--section-gap) / 2);
+}
+
+/* Mono eyebrow label above section titles */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Scroll reveal — elements start hidden, .is-visible added by
+   useScrollReveal when they enter the viewport. transform/opacity
+   only, so no layout thrash. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger helpers for card grids */
+.reveal-delay-1 { transition-delay: 60ms; }
+.reveal-delay-2 { transition-delay: 120ms; }
+.reveal-delay-3 { transition-delay: 180ms; }
+.reveal-delay-4 { transition-delay: 240ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

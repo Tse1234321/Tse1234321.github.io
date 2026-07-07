@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4d9fff"/>
+      <stop offset="1" stop-color="#6e7bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0a0e14"/>
+  <!-- circuit-trace W monogram -->
+  <path d="M14 20 L20 44 L27 28 L32 40 L37 28 L44 44 L50 20"
+        fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="14" cy="20" r="3.2" fill="#4d9fff"/>
+  <circle cx="50" cy="20" r="3.2" fill="#6e7bff"/>
+</svg>

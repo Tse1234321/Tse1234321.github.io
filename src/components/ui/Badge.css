@@ -1,0 +1,33 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--completed {
+  color: var(--status-completed);
+  background: var(--status-completed-bg);
+}
+
+.badge--progress {
+  color: var(--status-progress);
+  background: var(--status-progress-bg);
+}
+
+.badge--prototype {
+  color: var(--status-prototype);
+  background: var(--status-prototype-bg);
+}

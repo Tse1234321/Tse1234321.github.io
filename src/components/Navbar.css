@@ -1,0 +1,184 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--duration-base) ease,
+    border-color var(--duration-base) ease,
+    backdrop-filter var(--duration-base) ease;
+}
+
+.nav--scrolled {
+  background: rgba(10, 14, 20, 0.75);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom-color: var(--border);
+}
+
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: var(--text-caption);
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+  margin-right: auto;
+}
+
+.nav__logo {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.nav__link {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  transition:
+    color var(--duration-fast) ease,
+    background-color var(--duration-fast) ease;
+}
+
+.nav__link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav__link--active {
+  color: var(--accent);
+}
+
+.nav__github {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+.nav__github svg {
+  width: 18px;
+  height: 18px;
+}
+
+.nav__github:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Burger — two bars that rotate into an X */
+.nav__burger {
+  display: none;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+}
+
+.nav__burger span {
+  position: absolute;
+  left: 8px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-primary);
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+
+.nav__burger span:first-child {
+  top: 14px;
+}
+
+.nav__burger span:last-child {
+  top: 21px;
+}
+
+.nav__burger--open span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.nav__burger--open span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* Mobile menu panel. z-index sits just below the header (100) so the brand
+   and close button stay on top. Background is near-opaque so readability does
+   not depend on backdrop-filter, which some engines skip for fixed layers. */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  inset: var(--nav-height) 0 0 0;
+  z-index: 90;
+  background: rgba(9, 12, 18, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) ease;
+}
+
+.nav__mobile--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav__mobile ul {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) var(--container-pad);
+  gap: var(--space-1);
+}
+
+.nav__mobile a {
+  display: block;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-h3);
+  font-weight: 550;
+  color: var(--text-primary);
+}
+
+.nav__mobile a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .nav__links,
+  .nav__github {
+    display: none;
+  }
+
+  .nav__burger,
+  .nav__mobile {
+    display: block;
+  }
+
+  /* Menu panel needs a solid surface even before scroll */
+  .nav {
+    background: rgba(10, 14, 20, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}

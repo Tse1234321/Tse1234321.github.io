@@ -1,0 +1,296 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-height);
+  overflow: hidden;
+}
+
+/* Faint engineering grid, faded at the edges */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+}
+
+/* One soft glow behind the headline */
+.hero__glow {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(77, 159, 255, 0.14) 0%, transparent 65%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+  width: 100%;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  animation: hero-in 700ms var(--ease-out-expo) both;
+}
+
+.hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hero__kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--status-completed);
+  box-shadow: 0 0 8px var(--status-completed);
+}
+
+.hero__name {
+  font-size: var(--text-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #fff 55%, #9bb8dd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__tagline {
+  font-size: var(--text-h3);
+  font-weight: 500;
+  color: var(--text-primary);
+  max-width: 34ch;
+  line-height: 1.45;
+}
+
+.hero__sub {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  max-width: 52ch;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+/* ---- Floating visual cards ---- */
+.hero__visual {
+  position: relative;
+  height: 420px;
+  animation: hero-in 700ms var(--ease-out-expo) 150ms both;
+}
+
+.hero__card {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(16, 23, 36, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lift);
+}
+
+.hero__card--terminal {
+  top: 24px;
+  right: 8%;
+  width: min(340px, 86%);
+  animation: float-a 7s ease-in-out infinite;
+}
+
+.hero__card-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero__card-bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2a3850;
+}
+
+.hero__card-bar span {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.hero__code {
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  white-space: pre;
+  overflow: hidden;
+}
+
+.c-dim { color: var(--text-tertiary); }
+.c-fn { color: var(--accent); }
+.c-ok { color: var(--status-completed); }
+.c-str { color: var(--accent-secondary); }
+
+.hero__card--node {
+  bottom: 64px;
+  left: 4%;
+  width: min(260px, 70%);
+  padding: 16px;
+  color: var(--accent);
+  animation: float-b 8s ease-in-out infinite;
+}
+
+.node-box {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.node-out {
+  fill: rgba(110, 123, 255, 0.15);
+  stroke: var(--accent-secondary);
+  stroke-width: 1.5;
+}
+
+.hero__card-label {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.hero__card--chip {
+  top: 58%;
+  right: 2%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--status-prototype);
+  animation: float-a 9s ease-in-out 1s infinite;
+}
+
+.hero__card--chip svg {
+  width: 110px;
+}
+
+.hero__chip-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+}
+
+/* Scroll hint — thin line inside a pill */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 38px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+.hero__scroll-hint span {
+  width: 2px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--text-tertiary);
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float-a {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(9px); opacity: 0.2; }
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-10);
+  }
+
+  .hero__visual {
+    height: 300px;
+    max-width: 480px;
+  }
+
+  .hero__card--terminal {
+    top: 0;
+    right: 0;
+  }
+
+  .hero__card--node {
+    bottom: 12px;
+    left: 0;
+  }
+
+  .hero__card--chip {
+    display: none;
+  }
+
+  .hero__scroll-hint {
+    display: none;
+  }
+}
