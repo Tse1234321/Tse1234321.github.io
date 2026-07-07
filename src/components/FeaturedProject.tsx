@@ -1,4 +1,3 @@
-import { site } from '../data/site'
 import { Button } from './ui/Button'
 import { GitHubIcon } from './Navbar'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -264,17 +263,29 @@ export function FeaturedProject() {
             <GitHubIcon />
             View on GitHub
           </Button>
-          <Button href={`${REPO_URL}/releases`} variant="secondary" external>
+          <Button href={`${REPO_URL}/releases/latest`} variant="secondary" external>
+            <DownloadIcon />
+            Download for Windows
+          </Button>
+          <Button href={`${REPO_URL}/releases`} variant="ghost" external>
             Releases &amp; Changelog
           </Button>
-          <Button variant="secondary" disabled>
-            Live Demo — Coming Soon
-          </Button>
-          <a className="featured__cta-note" href={site.github} target="_blank" rel="noopener noreferrer">
-            More on my GitHub profile ↗
-          </a>
         </div>
+        <p className="featured__cta-meta reveal">
+          Free Windows 10/11 installer — latest release{' '}
+          <span className="featured__cta-ver">v2.5.7</span> (~105&nbsp;MB). Local-first, runs fully
+          offline with no account required.
+        </p>
       </div>
     </section>
+  )
+}
+
+function DownloadIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M8 2v8m0 0 3-3m-3 3L5 7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M2.5 11.5v1a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-1" strokeLinecap="round" />
+    </svg>
   )
 }

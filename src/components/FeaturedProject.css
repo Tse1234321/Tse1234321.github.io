@@ -333,20 +333,21 @@
   gap: var(--space-2);
 }
 
-.featured__cta-note {
+.featured__cta-meta {
+  margin-top: var(--space-2);
   font-size: var(--text-caption);
   color: var(--text-tertiary);
-  margin-left: auto;
+  max-width: 62ch;
+}
+
+.featured__cta-ver {
+  font-family: var(--font-mono);
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
   .featured__ps,
   .featured__highlights {
     grid-template-columns: 1fr;
-  }
-
-  .featured__cta-note {
-    margin-left: 0;
-    width: 100%;
   }
 }
