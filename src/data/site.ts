@@ -4,11 +4,11 @@
  */
 export const site = {
   name: 'Wu Hung-Tse',
-  role: 'Electrical Engineering Student',
-  tagline: 'Electrical engineering student building practical software and hardware tools.',
-  subTagline:
-    'I turn everyday engineering friction into working tools — from a local-first Windows desktop assistant to interactive teaching systems for electronics and digital logic.',
+  role: 'Electrical Engineering Student & Software Builder',
+  heroSubtitle:
+    'Building practical software and hardware tools with engineering thinking, clean UI, and local-first product design.',
   email: 'jeremywu0420@gmail.com',
+  // Personal profile link (used as a contact channel, not a data integration).
   github: 'https://github.com/Tse1234321',
   githubHandle: 'Tse1234321',
   // TODO: replace with your real LinkedIn URL when ready.
@@ -17,9 +17,11 @@ export const site = {
   location: 'Taiwan',
 } as const
 
+// Section order follows the intended reading hierarchy:
+// Featured → Case Study → Supporting Projects → Skills → Journey → Contact.
 export const navLinks = [
-  { label: 'About', href: '#about' },
   { label: 'Featured', href: '#featured' },
+  { label: 'Case Study', href: '#case-study' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Journey', href: '#journey' },

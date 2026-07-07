@@ -1,12 +1,12 @@
 import { site } from '../data/site'
+import { featured } from '../data/featured'
 import { Button } from './ui/Button'
-import { GitHubIcon } from './Navbar'
 import './Hero.css'
 
 export function Hero() {
   return (
     <section className="hero" id="top">
-      {/* Decorative layers — pure CSS, no runtime cost */}
+      {/* One faint grid + one soft glow. Nothing that competes with the text. */}
       <div className="hero__grid" aria-hidden="true" />
       <div className="hero__glow" aria-hidden="true" />
 
@@ -14,22 +14,19 @@ export function Hero() {
         <div className="hero__content">
           <span className="hero__kicker">
             <span className="hero__kicker-dot" />
-            {site.role} · Software &amp; Hardware
+            {site.role}
           </span>
 
           <h1 className="hero__name">{site.name}</h1>
-
-          <p className="hero__tagline">{site.tagline}</p>
-          <p className="hero__sub">{site.subTagline}</p>
+          <p className="hero__subtitle">{site.heroSubtitle}</p>
 
           <div className="hero__ctas">
-            <Button href="#projects">
-              View Projects
+            <Button href="#featured">
+              View Featured Project
               <ArrowIcon />
             </Button>
-            <Button href={site.github} variant="secondary" external>
-              <GitHubIcon />
-              GitHub
+            <Button href="#projects" variant="secondary">
+              Explore Projects
             </Button>
             <Button href="#contact" variant="ghost">
               Contact Me
@@ -37,62 +34,24 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Floating cards — a quiet nod to NEXUS and the EE background */}
-        <div className="hero__visual" aria-hidden="true">
-          <div className="hero__card hero__card--terminal">
-            <div className="hero__card-bar">
-              <i />
-              <i />
-              <i />
-              <span>nexus — release</span>
-            </div>
-            <pre className="hero__code">
-              <span className="c-dim">$</span> <span className="c-fn">npm</span> run dist
-              {'\n'}
-              <span className="c-dim">…</span>
-              {'\n'}
-              <span className="c-ok">✓</span> built installer <span className="c-str">v2.5.7</span>
-              {'\n'}
-              <span className="c-ok">✓</span> local-first · no cloud required
-            </pre>
-          </div>
-
-          <div className="hero__card hero__card--node">
-            <svg viewBox="0 0 200 96">
-              <g stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.7">
-                <path d="M28 48 C 60 48, 60 24, 92 24" />
-                <path d="M28 48 C 60 48, 60 72, 92 72" />
-                <path d="M108 24 C 140 24, 140 48, 168 48" />
-                <path d="M108 72 C 140 72, 140 48, 168 48" />
-              </g>
-              <g>
-                <rect x="12" y="38" width="24" height="20" rx="5" className="node-box" />
-                <rect x="88" y="14" width="24" height="20" rx="5" className="node-box" />
-                <rect x="88" y="62" width="24" height="20" rx="5" className="node-box" />
-                <circle cx="172" cy="48" r="11" className="node-out" />
-              </g>
-            </svg>
-            <span className="hero__card-label">workflow.automate()</span>
-          </div>
-
-          <div className="hero__card hero__card--chip">
-            <span className="hero__chip-label">FSM</span>
-            <svg viewBox="0 0 120 40">
-              <path
-                d="M4 20 h14 v-12 h14 v24 h14 v-12 h14 v-12 h14 v24 h14 v-12 h14 v-6 h14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-        </div>
+        {/* The single protagonist teaser — points at Windows Assistant / NEXUS. */}
+        <a className="hero__feature" href="#featured" aria-label="View featured project: Windows Assistant / NEXUS">
+          <span className="hero__feature-eyebrow">Featured Project</span>
+          <h2 className="hero__feature-name">
+            Windows Assistant <span>/ NEXUS</span>
+          </h2>
+          <p className="hero__feature-desc">{featured.heroOneLiner}</p>
+          <ul className="hero__feature-meta">
+            <li>Local-first</li>
+            <li>Electron + React</li>
+            <li>Automation</li>
+          </ul>
+          <span className="hero__feature-link">
+            View Featured Project
+            <ArrowIcon />
+          </span>
+        </a>
       </div>
-
-      <a href="#about" className="hero__scroll-hint" aria-label="Scroll to about section">
-        <span />
-      </a>
     </section>
   )
 }

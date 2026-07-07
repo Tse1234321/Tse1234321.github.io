@@ -11,7 +11,7 @@ export function Contact() {
     <section className="section" id="contact" ref={ref}>
       <div className="container">
         <div className="contact reveal">
-          <span className="eyebrow">06 · Contact</span>
+          <span className="eyebrow">Contact</span>
           <h2 className="contact__title">Let's build something</h2>
           <p className="contact__lead">
             I'm open to internships, collaborations, and conversations about software, hardware,

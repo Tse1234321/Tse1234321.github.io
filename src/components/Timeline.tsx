@@ -10,8 +10,9 @@ export function Timeline() {
     <section className="section" id="journey" ref={ref}>
       <div className="container">
         <SectionHeading
-          eyebrow="05 · Journey"
+          eyebrow="Journey"
           title="From fundamentals to shipped software"
+          tone="quiet"
         />
 
         <ol className="timeline">

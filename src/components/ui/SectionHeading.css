@@ -14,3 +14,17 @@
   color: var(--text-secondary);
   max-width: 60ch;
 }
+
+/* Quiet tone: lower in the visual hierarchy (Skills, Journey). */
+.section-heading--quiet {
+  margin-bottom: var(--space-5);
+}
+
+.section-heading--quiet .section-heading__title {
+  font-size: var(--text-h2);
+  color: var(--text-secondary);
+}
+
+.section-heading--quiet .eyebrow {
+  color: var(--text-tertiary);
+}

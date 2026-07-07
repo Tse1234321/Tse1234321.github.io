@@ -7,32 +7,27 @@ export interface TimelineEntry {
 export const timeline: TimelineEntry[] = [
   {
     period: 'Foundations',
-    title: 'Started with programming fundamentals',
-    description:
-      'Learned C++ and Python — data structures, problem solving, and the habit of building small programs to answer my own questions.',
+    title: 'Programming fundamentals',
+    description: 'Learned C++ and Python — data structures, problem solving, and building small tools to answer my own questions.',
   },
   {
     period: 'EE Core',
     title: 'Circuits & digital logic',
-    description:
-      'Went deep on circuit analysis, electronics, and digital logic design — K-maps, state machines, and Verilog. Started noticing how much of this could be tooled.',
+    description: 'Went deep on circuit analysis, digital logic, K-maps, state machines, and Verilog — and started seeing what could be tooled.',
   },
   {
     period: 'First Tools',
-    title: 'Began building practical tools',
-    description:
-      'Turned coursework friction into software: logic circuit generators, MATLAB visualizations, and interactive teaching experiments.',
+    title: 'Building practical tools',
+    description: 'Turned coursework friction into software: logic generators, MATLAB visualizations, and interactive teaching experiments.',
   },
   {
     period: 'NEXUS',
-    title: 'Shipped a real desktop application',
-    description:
-      'Built NEXUS (PC Life Assistant) with Electron + React and iterated it through dozens of releases to v2.5.7 — architecture, safety design, packaging, and all.',
+    title: 'A real desktop application',
+    description: 'Designed and built Windows Assistant / NEXUS with Electron and React — architecture, local-first data flow, and modular UI.',
   },
   {
     period: 'Now',
-    title: 'Building toward an engineering career',
-    description:
-      'Growing this portfolio, deepening both the software and hardware sides, and looking for opportunities to build things that matter with a team.',
+    title: 'Toward an engineering career',
+    description: 'Deepening both the software and hardware sides, and building toward work that ships real tools with a team.',
   },
 ]
